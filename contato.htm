@@ -6,22 +6,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.87), rgba(0, 174, 255, 0.548)), 
+                        url('Imagens/Phelippe Vs Yuri StickArt-1706481147450_0000.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .container input[type="text"],
+        .container input[type="email"],
+        .container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .container button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #45a049;
+        }
+
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 100%;
+            height: 5px;
+            background-color: #acacac;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-menu.open .bar:nth-child(1) {
+            transform: translateY(12px) rotate(45deg);
+        }
+
+        .hamburger-menu.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.open .bar:nth-child(3) {
+            transform: translateY(-12px) rotate(-45deg);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #3d3d3d;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #ffffff3b;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.418);
+            color: #fff;
+        }
+    </style>
 </head>
 
-<body>    
-<main>
-        <h1>Contatow</h1>
-        <!-- Conteúdo principal da página inicial -->
-    </main>
-    <ul>
-        <li>E-mail:Phelppe@gmail.com</li>
+<body>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Início</a>
+        <a href="links.htm" target="_blank">Links Interessantes</a>
+        <a href="fotos.htm">Fotos</a>
+        <a href="contato.htm">Contato</a>
+        <a href="Aplicativos de animação.htm">Aplicativos de animação</a>
+        <a href="Aplicativos de edição.htm">Aplicativos de edição</a>
+    </div>
 
-    </ul>
+    <div class="container">
+        <h2>Formulário de Contato</h2>
+        <p>Celular: (34) 98867-9138</p>
+        <p>Email: Phelppe@gmail.com</p>
+        <form action="submit_form.php" method="POST">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 
     <footer>
         <p>Desenvolvido por Phelippe Robert Miranda Da Silva - RA: 5160520</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.querySelector('.hamburger-menu').classList.toggle('open');
+        }
+    </script>
 </body>
+
+</html>
 
 </html>
