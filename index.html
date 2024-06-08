@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,32 +37,146 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1>Os meus projetos/trabalhos</h1>
         <!-- Conteúdo principal da página inicial -->
     </main>
-
     <style>
+        body {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.87), rgba(0, 174, 255, 0.548)), url('Imagens/Phelippe Vs Yuri StickArt-1706481147450_0000.png');
+            background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita que a imagem se repita */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: flex-start;
+        }
+
         header {
             height: 300px; /* Altura do banner */
             text-align: center;
+            background-color: rgba(0, 0, 0, 0.267);
+            color: rgb(255, 255, 255);
         }
-        img {
+
+        header img {
             max-width: 100%;
             max-height: 100%;
+        }
+
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 100%;
+            height: 5px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        /* Animations for the open state */
+        .hamburger-menu.open .bar:nth-child(1) {
+            transform: translateY(12px) rotate(45deg);
+        }
+
+        .hamburger-menu.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.open .bar:nth-child(3) {
+            transform: translateY(-12px) rotate(-45deg);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #ffffff3b;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.466);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
         }
     </style>
 </head>
 <body>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Início</a>
+        <a href="links.htm" target="_blank">Links Interessantes</a>
+        <a href="fotos.htm">Fotos</a>
+        <a href="contato.htm">Contato</a>
+        <a href="Aplicativos de animação.htm">Aplicativos de animação</a>
+        <a href="Aplicativos de edição.htm">Aplicativos de edição</a>
+    </div>
+
     <header>
-        <!-- Conteúdo do seu banner vai aqui -->
-        <img src="Imagens/eododd-1665299801716_0000.png" alt="Banner do Meu Site">
+        <img src="Imagens/logo_uniube_HORIZONTAL_branca.png" width="300" alt="Logotipo Uniube">
     </header>
 
-    <h2>Sobre mim e os meus projetos</h2>
-    Olá,meu nome é Phelippe Robert,e eu criei esta pagina para que eu pudesse divulgar as minhas animações/projetos feitas no celular e PC com os aplicativos:<a href="Aplicativos de animação.htm">StickNodes</a>, <a href="Aplicativos de animação.htm#flipaclip-ponto">FlipaClip</a>, <a href="Aplicativos de animação.htm#pivot-ponto">Pivot</a> e <a href="Aplicativos de animação.htm#stickfighter-ponto">StickFight</a>.E para edição de video eu já usei:<a href="Aplicativos de edição.htm">YouCut</a> e <a href="Aplicativos de edição.htm#kinemaster-ponto">KineMaster</a>.
-
-
+    <main>
+        <h1>Os meus projetos/trabalhos</h1>
+        <p>Olá, meu nome é Phelippe Robert, e eu criei esta página para que eu pudesse divulgar as minhas animações/projetos feitas no celular e PC com os aplicativos: <a href="Aplicativos de animação.htm">StickNodes</a>, <a href="Aplicativos de animação.htm#flipaclip-ponto">FlipaClip</a>, <a href="Aplicativos de animação.htm#pivot-ponto">Pivot</a> e <a href="Aplicativos de animação.htm#stickfighter-ponto">StickFight</a>. Para edição de vídeo eu já usei: <a href="Aplicativos de edição.htm">YouCut</a> e <a href="Aplicativos de edição.htm#kinemaster-ponto">KineMaster</a>.</p>
+    </main>
 
     <footer>
-        <p>&copy;Desenvolvido por Phelippe Robert Miranda Da Silva - RA: 5160520</p>
+        <p>&copy; Desenvolvido por Phelippe Robert Miranda Da Silva - RA: 5160520</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.querySelector('.hamburger-menu').classList.toggle('open');
+        }
+    </script>
 </body>
-
 </html>
