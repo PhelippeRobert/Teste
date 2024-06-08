@@ -1,0 +1,76 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Animations for the open state */
+.hamburger-menu.open .bar:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .bar:nth-child(3) {
+    transform: translateY(-12px) rotate(-45deg);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    width: 100%;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
